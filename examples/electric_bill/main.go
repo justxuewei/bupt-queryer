@@ -28,7 +28,8 @@ func main() {
 	if err != nil {
 		log.Panicf("electric bill query is failed: %v", err)
 	}
-	if threshold != nil && r+f > float32(*threshold) {
+	if r+f < float32(*threshold) {
+		log.Printf("stop to dispatch message because remaining is greater than threshold")
 		return
 	}
 	n := server_chan.NewNotifier(*sk)
