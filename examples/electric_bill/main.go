@@ -28,7 +28,7 @@ func main() {
 	if err != nil {
 		log.Panicf("electric bill query is failed: %v", err)
 	}
-	if threshold == nil || *threshold == 0 || r+f > float32(*threshold) {
+	if threshold != nil && r+f > float32(*threshold) {
 		return
 	}
 	n := server_chan.NewNotifier(*sk)
