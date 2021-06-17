@@ -1,0 +1,1 @@
+module "github.com/xavier-niu/bupt-queryer"
